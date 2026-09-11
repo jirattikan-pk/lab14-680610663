@@ -26,9 +26,11 @@ export default function DashboardPage() {
     <div className="container mt-4">
       <h2>Dashboard</h2>
       <div className="mt-3">
-        <label className="form-label">
-          ผู้ลงทะเบียนแล้ว ({registrant.length} คน)
-        </label>
+          {
+            registrant.length != 0 ? <label className="form-label"> ผู้ลงทะเบียนแล้ว ({registrant.length} คน)</label> :
+            <p className="text-muted mt-3"> ยังไม่มีผู้ลงทะเบียน </p>
+        
+          }
           <div className="d-flex flex-column gap-2">
           {registrant.map((regist) =>(
             <UserRegisterCard
