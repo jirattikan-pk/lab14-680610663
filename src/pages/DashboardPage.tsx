@@ -1,6 +1,6 @@
 import UserRegisterCard from "../components/UserRegisterCard";
 import type { Registrant } from "../libs/Registrant";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 
 const STORAGE_KEY = "lap14";
 const defaultTasks: Registrant[] = [];
@@ -16,7 +16,7 @@ function loadTasks(): Registrant[] {
 }
 
 export default function DashboardPage() {
-  const [registrant, setRegistrant] = useState<Registrant[]>(loadTasks);
+  const registrant = loadTasks();
 
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(registrant));
