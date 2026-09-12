@@ -75,13 +75,9 @@ export default function ModalRegister({ onClose } : {onClose: () => void}) {
       .filter((item) => selectedExtras.includes(item.id))
       .reduce((sum, item) => sum + item.price, 0);
 
-    const discountedExtras = allExtrasSelected
-      ? extrasTotal * 0.8 // ลด 20%
-      : extrasTotal;
+    total += extrasTotal;
 
-    total += discountedExtras;
-
-    return total;
+    return allExtrasSelected ? total * 0.8 : total;
   };
 
   const registerBtnOnClick = () => {
